@@ -4,6 +4,7 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
+var q = 0;
 
 var numBlanks = 0;
 var winCounter = 0;
@@ -22,19 +23,57 @@ var timerCount;
 
 //creating the questions array
 //question 1
-var question1 = [
-document.textContent="question: 'Which is a function ?"
-document.textContent= "function", true,
-document.textContent= "method", false,
-document.textContent= "variable", false,
-document.textContent= "class", false,
+var Questions = [
+{
+    text:'question 1',
+    choices:['a','b','c','d'],
+    answer:'a'
+},
+{
+    text:'question 2',
+    choices:['a','b','c','d'],
+    answer:'c'
+},
+{
+    text:'question 3',
+    choices:['a','b','c','d'],
+    answer:'b'
+},
+{
+    text:'question 4',
+    choices:['a','b','c','d'],
+    answer:'d'
+},
+{
+    text:'question 5',
+    choices:['a','b','c','d'],
+    answer:'b'
+},
 ]
 //question 2
 //question 3
 //question 4
 
 
-var function webquiz () {
+function webquiz () {
+    var questionEl = document.getElementById('question-text');
+    questionEl.textContent = Questions[q].text;
+    var answerDiv = document.querySelector('.answers');
+    Questions[q].choices.forEach(function(choice){
+        console.log(choice)
+    var button = document.createElement('button');
+    button.setAttribute('class', 'btn');
+    button.textContent = choice;
+    button.setAttribute('value', choice);
+    button.onclick = function(){
+        console.log(this);
+        console.log(this.value);
+    }
+    answerDiv.appendChild(button);
+    
+    })
+
+}
 
 //timer function
 function countdown() {
@@ -54,7 +93,7 @@ function countdown() {
             }
         }, 1000)
     }
-     
+}     
 //Start Questions
 
 //keep score 
@@ -66,6 +105,8 @@ function countdown() {
 //Next Question
 
 //pull information from localstorage for high score
-
-
-}
+startButton.addEventListener('click', function(){
+    document.querySelector('.start-div').classList.add('hide');
+    document.querySelector('.question-card').classList.remove('hide');
+    webquiz();
+})

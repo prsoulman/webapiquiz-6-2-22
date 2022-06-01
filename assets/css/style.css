@@ -9,20 +9,21 @@
 * {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--darkmode);
-    display: flex;
-    margin: auto;
+    /* display: flex; */
 }
 
 body{
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
     width: 100vw;
     height: 100vh;
 }
-
+.hide {
+    display:none;
+}
 .Timer {
     color: var(--typelight);
 }
@@ -32,6 +33,11 @@ body{
     align-items: center;
     width: 100px;
     height: 100px;
+}
+.start-div {
+    max-width: 800px;
+    margin: 10px auto;
+
 }
 .start {
     display: flex;
