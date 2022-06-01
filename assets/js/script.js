@@ -2,7 +2,7 @@
 //create variables at the top
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
-var timerElement = document.querySelector(".timer-count");
+var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
 
 var numBlanks = 0;
@@ -21,14 +21,38 @@ var timerCount;
 
 //creating the questions array
 //question 1
+var question1 = [
+document.textContent="question: 'Which is a function ?"
+ document.textContent= "function", true,
+document.textContent= "method", false,
+document.textContent= "variable", false,
+document.textContent= "class", false,
+]
 //question 2
 //question 3
 //question 4
-
+]
 
 
 //timer function
-
+function countdown() {
+    var timer = 76;
+    var timeCount;
+    /**this is the timer funtion which will start counting as soon as the quiz starts*/
+    function setupTimer() {
+        timeCount = setInterval(function () {
+            timer--;
+            var timeReset = timeElement.textContent = "Time:" + " " + timer;
+           timer = timer;
+            if (timer <= 0) {         
+                clearInterval(timeCount);
+                  
+                timeElement.textContent = timeReset;
+                 
+            }
+        }, 1000)
+    }
+     
 //Start Questions
 
 //reset
