@@ -15,7 +15,8 @@ var timerCount;
 //create a score function
 
 //highscore page
-//todo: create a localstorage for the score element
+//todo: create a localstorage for the score element 
+//localStorage.setItem("
 //todo: create a highscore function
 //todo: store the rank in local storage
 
@@ -23,7 +24,7 @@ var timerCount;
 //question 1
 var question1 = [
 document.textContent="question: 'Which is a function ?"
- document.textContent= "function", true,
+document.textContent= "function", true,
 document.textContent= "method", false,
 document.textContent= "variable", false,
 document.textContent= "class", false,
@@ -31,8 +32,9 @@ document.textContent= "class", false,
 //question 2
 //question 3
 //question 4
-]
 
+
+var function webquiz () {
 
 //timer function
 function countdown() {
@@ -44,9 +46,9 @@ function countdown() {
             timer--;
             var timeReset = timeElement.textContent = "Time:" + " " + timer;
            timer = timer;
-            if (timer <= 0) {         
+            if (timer === 0) {         
                 clearInterval(timeCount);
-                  
+                textContent("Game Over!");
                 timeElement.textContent = timeReset;
                  
             }
@@ -55,8 +57,15 @@ function countdown() {
      
 //Start Questions
 
+//keep score 
+
 //reset
 
 //Test Loop attached to timer 
 
 //Next Question
+
+//pull information from localstorage for high score
+
+
+}
