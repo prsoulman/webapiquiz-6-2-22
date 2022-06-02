@@ -165,8 +165,9 @@ startButton.addEventListener('click', function(){
         var timesUp  = document.createElement("correctish");
         //timesUp.setAttribute(displayTimer);
         displayTimer.appendChild(timesUp);
+        //display after the countdown
         displayTimer.textContent = " Times up!";
-      
+        //todo: call conditionally if the correct answer is clicked
       }
       
       setTime();
