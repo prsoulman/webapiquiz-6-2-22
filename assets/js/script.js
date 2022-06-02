@@ -74,23 +74,29 @@ function webquiz () {
     answerDiv.appendChild(button);
 
     })
-    if (choices === answer) {
-
-    }
 
 }
 
 //I need a function to loop through the webquiz function
 function looper () {
-    var loopEl = "";
-    for (q; q < [0]; i++) {
-        var index = Math.floor(Math.random()*Questions.length);
-        var char = Questions[index];
-        Questions += char;
+    if (choices[index] === answer [0]) {
+        var yayNah = document.getElementById('correctish');
+        yayNah.appendChild(correctish);
+        yayNah.textContent('Correct!');
     }
+//need replace command for 'correctish with CORRECT!
+    // else (choices[index] === answer [0]) {
+
+    // }
+    }
+//     for (q; q < [0]; i++) {
+//         var index = Math.floor(Math.random()*Questions.length);
+//         var char = Questions[index];
+//         Questions += char;
+//     }
  
-   return randomPass;
-   }
+//    return randomPass;
+//    }
 
 
 //create a score function to display score attached to code local storage function
