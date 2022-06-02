@@ -138,5 +138,8 @@ function countdown() {
 startButton.addEventListener('click', function(){
     document.querySelector('.start-div').classList.add('hide');
     document.querySelector('.question-card').classList.remove('hide');
+    countdown ();
     webquiz();
+    
+
 })
