@@ -4,6 +4,7 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
+var displayTimer = document.querySelector(".correctish");
 var q = 0;
 
 var numBlanks = 0;
@@ -74,9 +75,9 @@ function webquiz () {
     answerDiv.appendChild(button);
 
     })
-    if (choices === answer) {
+    // if (choices === answer) {
 
-    }
+    // }
 
 }
 
@@ -138,8 +139,38 @@ function countdown() {
 startButton.addEventListener('click', function(){
     document.querySelector('.start-div').classList.add('hide');
     document.querySelector('.question-card').classList.remove('hide');
-    countdown ();
-    webquiz();
+    //countdown ();
     
+    var secondsLeft = 30;
+//this timer works 
+    function setTime() {
+        // Sets interval in variable
+        var timerInterval = setInterval(function() {
+          secondsLeft--;
+          displayTimer.textContent = secondsLeft;
+      
+          if(secondsLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to create and append image
+            sendMessage();
+          }
+      
+        }, 1000);
+      }
+      //need to attach a display 
+      function sendMessage() {
+        
+        console.log(" hello");
+        var timesUp  = document.createElement("correctish");
+        //timesUp.setAttribute(displayTimer);
+        displayTimer.appendChild(timesUp);
+        displayTimer.textContent = " Times up!";
+      
+      }
+      
+      setTime();
+      webquiz();
+      
 
 })

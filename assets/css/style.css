@@ -26,6 +26,8 @@ body{
 }
 .Timer {
     color: var(--typelight);
+    justify-content: right;
+    z-index: 3;
 }
 .answers {
     display: flex;
