@@ -1,13 +1,13 @@
 :root {
 
---darkmode:#808080;
---typedark:#202421;
+--darkmode:#e3d8d8;
+--typedark:#bac9be;
 
 }
 
 
 * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: var(--darkmode);
     /* display: flex; */
 }

@@ -26,14 +26,14 @@ var timerCount;
 //question 1
 var Questions = [
 {
-    text:'With what number does an index start?',
+    text:'What number does an index start with?',
     choices:['a-0','b-1','c-3','d-4'],
     answer:'a'
 },
 //question 2
 {
-    text:'question 2',
-    choices:['a','b','c','d'],
+    text:'How do you make global style changes in CSS',
+    choices:['not possible','--global','Global;','*'],
     answer:'c'
 },
 //question 3
@@ -60,9 +60,11 @@ var Questions = [
 
 
 function webquiz () {
+    //if q is greater than the length of the questions array exit function 
     var questionEl = document.getElementById('question-text');
     questionEl.textContent = Questions[q].text;
     var answerDiv = document.querySelector('.answers');
+    answerDiv.textContent="";
     Questions[q].choices.forEach(function(choice){
         console.log(choice)
     var button = document.createElement('button');
@@ -72,6 +74,8 @@ function webquiz () {
     button.onclick = function(){
         console.log(this);
         console.log(this.value);
+        q++;
+        webquiz();
     }
     answerDiv.appendChild(button);
 
@@ -81,6 +85,7 @@ function webquiz () {
     // }
 
 }
+
 
 //I need a function to loop through the webquiz function
 // function looper () {
@@ -173,7 +178,7 @@ startButton.addEventListener('click', function(){
       
       setTime();
       webquiz();
-      looper();
+
       
       
 
@@ -181,11 +186,13 @@ startButton.addEventListener('click', function(){
 
 
 // this is the  question loop function 
-function looper() {
-    //var answersEl = document.querySelector(button);
-    if (answerEl === answersEl.addEventListener('click'));
-    for (var i = 0; i < Questions[0].length; q++);
-}
+// function looper() {
+//     //var answersEl = document.querySelector(button);
+//     if (answerEl === answersEl.addEventListener('click')){
+//     for (var i = 0; i < Questions.length; q++);
+//     webquiz();
+//     };
+// }
 
 
 // document.querySelector('answers').setInterval(function(){
