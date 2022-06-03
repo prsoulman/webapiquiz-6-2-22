@@ -5,6 +5,7 @@ var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
 var displayTimer = document.querySelector(".correctish");
+var answersEl = document.querySelector('question-card hide');
 var q = 0;
 
 var numBlanks = 0;
@@ -82,16 +83,16 @@ function webquiz () {
 }
 
 //I need a function to loop through the webquiz function
-function looper () {
-    var loopEl = "";
-    for (q; q < [0]; i++) {
-        var index = Math.floor(Math.random()*Questions.length);
-        var char = Questions[index];
-        Questions += char;
-    }
+// function looper () {
+//     var loopEl = "";
+//     for (q; q < [0]; i++) {
+//         var index = Math.floor(Math.random()*Questions.length);
+//         var char = Questions[index];
+//         Questions += char;
+//     }
  
-   return randomPass;
-   }
+//    return randomPass;
+//    }
 
 
 //create a score function to display score attached to code local storage function
@@ -172,6 +173,20 @@ startButton.addEventListener('click', function(){
       
       setTime();
       webquiz();
+      looper();
+      
       
 
 })
+
+
+// this is the  question loop function 
+function looper() {
+    //var answersEl = document.querySelector(button);
+    if (answerEl === answersEl.addEventListener('click'));
+    for (var i = 0; i < Questions[0].length; q++);
+}
+
+
+// document.querySelector('answers').setInterval(function(){
+//     Questions[q]++;
