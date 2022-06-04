@@ -28,32 +28,32 @@ var timerCount;
 var Questions = [
 {
     text:'What number does an index start with?',
-    choices:['a-0','b-1','c-3','d-4'],
-    answer:'a'
+    choices:['0','1','3','4'],
+    answer:'0'
 },
 //question 2
 {
-    text:'How do you make global style changes in CSS',
+    text:'How do you make global style changes in CSS?',
     choices:['not possible','--global','Global;','*'],
-    answer:'c'
+    answer:'*'
 },
 //question 3
 {
-    text:'question 3',
-    choices:['a','b','c','d'],
-    answer:'b'
+    text:'how do you define a string?',
+    choices:['with a dictionary','like this','banana','with ""s'],
+    answer:'with ""s'
 },
 //question 4
 {
-    text:'question 4',
-    choices:['a','b','c','d'],
-    answer:'d'
+    text:'What punctuation is used to define a class in CSS?',
+    choices:['?',';','#','.'],
+    answer:'.'
 },
 //question 5
 {
-    text:'question 5',
-    choices:['a','b','c','d'],
-    answer:'b'
+    text:'Can you git push and pull at the same time?',
+    choices:['false','true'],
+    answer:'false'
 },
 ]
 
@@ -83,7 +83,7 @@ function webquiz () {
         console.log(this.value);
         q++;
         webquiz();
-        localScore();
+        
     }
     answerDiv.appendChild(button);
     
@@ -99,10 +99,12 @@ function webquiz () {
 
 //function stores the score for the high score page
 function localScore () {
-    if (Questions.text[q]=== Questions.answer[0]) {
+    if (Questions === answer) {
+    console.log('correct!');
     highScore.textContent('Winner!');
     setItem.JSON.stringify(webquiz());
     getItem.JSON.parse(webquiz());
+    localScore();
 }
 }
 //timer function
