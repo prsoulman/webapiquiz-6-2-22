@@ -4,6 +4,8 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
+var displayTimer = document.querySelector(".correctish");
+var answersEl = document.querySelector('question-card hide');
 var q = 0;
 
 var numBlanks = 0;
@@ -24,14 +26,14 @@ var timerCount;
 //question 1
 var Questions = [
 {
-    text:'With what number does an index start?',
+    text:'What number does an index start with?',
     choices:['a-0','b-1','c-3','d-4'],
     answer:'a'
 },
 //question 2
 {
-    text:'question 2',
-    choices:['a','b','c','d'],
+    text:'How do you make global style changes in CSS',
+    choices:['not possible','--global','Global;','*'],
     answer:'c'
 },
 //question 3
@@ -58,9 +60,11 @@ var Questions = [
 
 
 function webquiz () {
+    //if q is greater than the length of the questions array exit function 
     var questionEl = document.getElementById('question-text');
     questionEl.textContent = Questions[q].text;
     var answerDiv = document.querySelector('.answers');
+    answerDiv.textContent="";
     Questions[q].choices.forEach(function(choice){
         console.log(choice)
     var button = document.createElement('button');
@@ -70,12 +74,18 @@ function webquiz () {
     button.onclick = function(){
         console.log(this);
         console.log(this.value);
+        q++;
+        webquiz();
     }
     answerDiv.appendChild(button);
 
     })
+    // if (choices === answer) {
+
+    // }
 
 }
+
 
 //I need a function to loop through the webquiz function
 function looper () {
@@ -144,5 +154,55 @@ function countdown() {
 startButton.addEventListener('click', function(){
     document.querySelector('.start-div').classList.add('hide');
     document.querySelector('.question-card').classList.remove('hide');
-    webquiz();
+    //countdown ();
+    
+    var secondsLeft = 30;
+//this timer works 
+    function setTime() {
+        // Sets interval in variable
+        var timerInterval = setInterval(function() {
+          secondsLeft--;
+          displayTimer.textContent = secondsLeft;
+      
+          if(secondsLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to create and append image
+            sendMessage();
+          }
+      
+        }, 1000);
+      }
+      //need to attach a display 
+      function sendMessage() {
+        
+        console.log(" hello");
+        var timesUp  = document.createElement("correctish");
+        //timesUp.setAttribute(displayTimer);
+        displayTimer.appendChild(timesUp);
+        //display after the countdown
+        displayTimer.textContent = " Times up!";
+        //todo: call conditionally if the correct answer is clicked
+      }
+      
+      setTime();
+      webquiz();
+
+      
+      
+
 })
+
+
+// this is the  question loop function 
+// function looper() {
+//     //var answersEl = document.querySelector(button);
+//     if (answerEl === answersEl.addEventListener('click')){
+//     for (var i = 0; i < Questions.length; q++);
+//     webquiz();
+//     };
+// }
+
+
+// document.querySelector('answers').setInterval(function(){
+//     Questions[q]++;
