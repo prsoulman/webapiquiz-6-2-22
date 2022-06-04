@@ -6,6 +6,7 @@ var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
 var displayTimer = document.querySelector(".correctish");
 var answersEl = document.querySelector('question-card hide');
+var highScore = document.querySelector('View-High-Scores');
 var q = 0;
 
 var numBlanks = 0;
@@ -27,32 +28,32 @@ var timerCount;
 var Questions = [
 {
     text:'What number does an index start with?',
-    choices:['a-0','b-1','c-3','d-4'],
-    answer:'a'
+    choices:['0','1','3','4'],
+    answer:'0'
 },
 //question 2
 {
-    text:'How do you make global style changes in CSS',
+    text:'How do you make global style changes in CSS?',
     choices:['not possible','--global','Global;','*'],
-    answer:'c'
+    answer:'*'
 },
 //question 3
 {
-    text:'question 3',
-    choices:['a','b','c','d'],
-    answer:'b'
+    text:'how do you define a string?',
+    choices:['with a dictionary','like this','banana','with ""s'],
+    answer:'with ""s'
 },
 //question 4
 {
-    text:'question 4',
-    choices:['a','b','c','d'],
-    answer:'d'
+    text:'What punctuation is used to define a class in CSS?',
+    choices:['?',';','#','.'],
+    answer:'.'
 },
 //question 5
 {
-    text:'question 5',
-    choices:['a','b','c','d'],
-    answer:'b'
+    text:'Can you git push and pull at the same time?',
+    choices:['false','true'],
+    answer:'false'
 },
 ]
 
@@ -61,8 +62,13 @@ var Questions = [
 
 function webquiz () {
     //if q is greater than the length of the questions array exit function 
+    if (q >= Questions[4]) {
+        console.log("does this work")
+        clearInterval(timeCount);
+        textContent("Game Over!");
+        stop();
+    }
     var questionEl = document.getElementById('question-text');
-    questionEl.textContent = Questions[q].text;
     var answerDiv = document.querySelector('.answers');
     answerDiv.textContent="";
     Questions[q].choices.forEach(function(choice){
@@ -74,11 +80,12 @@ function webquiz () {
     button.onclick = function(){
         console.log(this);
         console.log(this.value);
-        q++;
+        var scoreEl = q++;
         webquiz();
+        
     }
     answerDiv.appendChild(button);
-
+    
     })
     // if (choices === answer) {
 
@@ -86,39 +93,19 @@ function webquiz () {
 
 }
 
-
-//I need a function to loop through the webquiz function
-function looper () {
-    if (choices[index] === answer [0]) {
-        var yayNah = document.getElementById('correctish');
-        yayNah.appendChild(correctish);
-        yayNah.textContent('Correct!');
-    }
-//need replace command for 'correctish with CORRECT!
-    // else (choices[index] === answer [0]) {
-
-    // }
-    }
-//     for (q; q < [0]; i++) {
-//         var index = Math.floor(Math.random()*Questions.length);
-//         var char = Questions[index];
-//         Questions += char;
-//     }
- 
-//    return randomPass;
-//    }
-
-
 //create a score function to display score attached to code local storage function
 
 
 //function stores the score for the high score page
 function localScore () {
-    
+    if (Questions === answer) {
+    console.log('correct!');
+    highScore.textContent('Winner!');
     setItem.JSON.stringify(webquiz());
     getItem.JSON.parse(webquiz());
+    localScore();
 }
-
+}
 //timer function
 function countdown() {
     var timer = 30;
@@ -192,3 +179,35 @@ startButton.addEventListener('click', function(){
       
 
 })
+ 
+
+
+// function printHighscores() {
+//     // either get scores from localstorage or set to empty array
+//     var highscores = JSON.parse(window.localStorage.getItem(highScore)) || [];
+  
+//     // sort highscores by score property in descending order
+//     highscores.sort(function(a, b) {
+//       return b.score - a.score;
+//     });
+  
+//     highscores.forEach(function(score) {
+//       // create li tag for each high score
+//       var liTag = document.createElement("li");
+//       liTag.textContent = score.initials + " - " + score.score;
+  
+//       // display on page
+//       var olEl = document.getElementById(highScore);
+//       olEl.appendChild(liTag);
+//     });
+//   }
+  
+//   function clearHighscores() {
+//     window.localStorage.removeItem(highscores);
+//     window.location.reload();
+//   }
+  
+//   document.getElementById("clear").onclick = clearHighscores;
+  
+//   // run function when page loads
+//   printHighscores();
