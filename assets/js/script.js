@@ -6,6 +6,7 @@ var timerElement = document.querySelector(".timer");
 var startButton = document.querySelector(".start-button");
 var displayTimer = document.querySelector(".correctish");
 var answersEl = document.querySelector('question-card hide');
+var highScore = document.querySelector('View-High-Scores');
 var q = 0;
 
 var numBlanks = 0;
@@ -61,6 +62,12 @@ var Questions = [
 
 function webquiz () {
     //if q is greater than the length of the questions array exit function 
+    if (q >= Questions[4]) {
+        console.log("does this work")
+        clearInterval(timeCount);
+        textContent("Game Over!");
+        stop();
+    }
     var questionEl = document.getElementById('question-text');
     questionEl.textContent = Questions[q].text;
     var answerDiv = document.querySelector('.answers');
@@ -76,9 +83,10 @@ function webquiz () {
         console.log(this.value);
         q++;
         webquiz();
+        localScore();
     }
     answerDiv.appendChild(button);
-
+    
     })
     // if (choices === answer) {
 
@@ -86,39 +94,17 @@ function webquiz () {
 
 }
 
-
-//I need a function to loop through the webquiz function
-function looper () {
-    if (choices[index] === answer [0]) {
-        var yayNah = document.getElementById('correctish');
-        yayNah.appendChild(correctish);
-        yayNah.textContent('Correct!');
-    }
-//need replace command for 'correctish with CORRECT!
-    // else (choices[index] === answer [0]) {
-
-    // }
-    }
-//     for (q; q < [0]; i++) {
-//         var index = Math.floor(Math.random()*Questions.length);
-//         var char = Questions[index];
-//         Questions += char;
-//     }
- 
-//    return randomPass;
-//    }
-
-
 //create a score function to display score attached to code local storage function
 
 
 //function stores the score for the high score page
 function localScore () {
-    
+    if (Questions.text[q]=== Questions.answer[0]) {
+    highScore.textContent('Winner!');
     setItem.JSON.stringify(webquiz());
     getItem.JSON.parse(webquiz());
 }
-
+}
 //timer function
 function countdown() {
     var timer = 30;
@@ -192,17 +178,3 @@ startButton.addEventListener('click', function(){
       
 
 })
-
-
-// this is the  question loop function 
-// function looper() {
-//     //var answersEl = document.querySelector(button);
-//     if (answerEl === answersEl.addEventListener('click')){
-//     for (var i = 0; i < Questions.length; q++);
-//     webquiz();
-//     };
-// }
-
-
-// document.querySelector('answers').setInterval(function(){
-//     Questions[q]++;
