@@ -192,17 +192,3 @@ startButton.addEventListener('click', function(){
       
 
 })
-
-
-// this is the  question loop function 
-// function looper() {
-//     //var answersEl = document.querySelector(button);
-//     if (answerEl === answersEl.addEventListener('click')){
-//     for (var i = 0; i < Questions.length; q++);
-//     webquiz();
-//     };
-// }
-
-
-// document.querySelector('answers').setInterval(function(){
-//     Questions[q]++;
