@@ -3,9 +3,9 @@ This is a web quiz using Javascript CSS and HTML. I mainly use DOM manipulations
 
 **Links**
 
-Github:
+Github: https://github.com/prsoulman/webapiquiz-6-2-22.git
 
-Git Pages:
+Git Pages: https://prsoulman.github.io/webapiquiz-6-2-22/
 
 **Technologies Used
 ---
@@ -14,3 +14,5 @@ Git Pages:
 -*JavaScript*
 ---
 ![Web API QUIZ](Screenshot%2022-06-04%190850.png)
+
+![web API Quiz 2](Screenshot%2022-06-04%191025.png)
