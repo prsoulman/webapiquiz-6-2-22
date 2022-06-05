@@ -13,6 +13,6 @@ Git Pages: https://prsoulman.github.io/webapiquiz-6-2-22/
 -*CSS*
 -*JavaScript*
 ---
-![Web API QUIZ](Screenshot%2022-06-04%190850.png)
+![Web API QUIZ](./Screenshot%202022-06-04%20190850.png)
 
-![web API Quiz 2](Screenshot%2022-06-04%191025.png)
+![web API Quiz 2](./Screenshot%2022-06-04%191025.png)
