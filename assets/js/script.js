@@ -16,7 +16,6 @@ var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
-
 //highscore page
 //todo: create a localstorage for the score element
 //localStorage.setItem("
@@ -57,13 +56,13 @@ var Questions = [
   },
 ];
 
-function corrections () {
-    if (Questions[0].choices[0] === Questions.answer[q]) {
-    alert('correct!');
-    } else {
-    alert('incorrect!');
-}
-}
+// function corrections () {
+//     if (Questions[0].choices[0] === Questions.answer[q]) {
+//     alert('correct!');
+//     } else {
+//     alert('incorrect!');
+// }
+// }
 
 function webquiz() {
   //if q is greater than the length of the questions array exit function
@@ -84,10 +83,12 @@ function webquiz() {
     button.setAttribute("value", choice);
     button.onclick = function () {
       console.log(this);
-      console.log(this.value);
+      //console.log(this.value);
         q++;
       webquiz();
-      corrections();
+      //corrections();
+     // localScore();
+      stop();
     };
     answerDiv.appendChild(button);
   });
@@ -162,7 +163,7 @@ startButton.addEventListener("click", function () {
   }
   //need to attach a display
   function sendMessage() {
-    console.log(" hello");
+    console.log("Times Up!");
     var timesUp = document.createElement("correctish");
     //timesUp.setAttribute(displayTimer);
     displayTimer.appendChild(timesUp);
